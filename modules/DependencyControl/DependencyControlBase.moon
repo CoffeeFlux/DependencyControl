@@ -22,6 +22,9 @@ class DependencyControlBase
         new: {
             badRecordError: "Error: Bad #{@@__name} record (%s)."
         }
+        registerMacro: {
+            badProcessError: "Error: Bad process passed to registerMacro for script '%s'"
+        }
     }
 
     -- static initializer for common DependencyRecord infrastructure,
@@ -142,6 +145,8 @@ class DependencyControlBase
         if type(name)=="function"
             process, validate, isActive, submenu = name, description, process, validate
             name, description = @record.name, @record.description
+
+        @@logger\assert type(process) == "function", msgs.registerMacro.badProcessError, name
 
         -- use automation script name for submenu by default
         submenu = @record.name if submenu == true
