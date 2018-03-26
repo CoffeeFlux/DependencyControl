@@ -155,7 +155,7 @@ class SQLiteDatabase
             else return msgs.decodeResult.results.unknownDetail\format(code, msg)
         else return msgs.decodeResult.results[code] or msgs.decodeResult.results.unknown\format(code)
 
-    --- Checks whether or not a given comprises one or more complete SQL statements.
+    --- Checks whether or not a given string comprises one or more complete SQL statements.
     -- @static
     -- @tparam string sql a sequence of SQL statements
     -- @treturn[1] boolean true the provided string contains at least one complete SQL statement
