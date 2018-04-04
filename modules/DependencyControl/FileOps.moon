@@ -9,71 +9,71 @@ local ConfigHandler
 
 class FileOps
     msgs = {
-            generic: {
-                deletionRescheduled: "Another deletion attempt has been rescheduled for the next restart."
-            }
-            attributes: {
-                badPath: "Path failed verification: %s."
-                genericError: "Can't retrieve attributes: %s."
-                noAttribute: "Can't find attriubte with name '%s'."
-            }
-            createConfig: {
-                handlerFailed: "Couldn't create ConfigHandler for the FileOps configuation file: %s"
-            }
-            mkdir: {
-                createError: "Error creating directory: %s."
-                otherExists: "Couldn't create directory because a %s of the same name is already present."
-            }
-            copy: {
-                targetExists: "Target file '%s' already exists"
-                genericError: "An error occured while copying file '%s' to '%s':\n%s"
-                dirCopyUnsupported: "Copying directories is currently not supported."
-                missingSource: "Couldn't find source file '%s'."
-                openError: "Couldn't open %s file '%s' for reading: \n%s"
-            }
-            move: {
-                inUseTryingRename: "Target file '%s' already exists and appears to be in use. Trying to rename and delete existing file..."
-                renamedDeletionFailed: "The existing file was successfully renamed to '%s', but couldn't be deleted (%s).\n%s"
-                overwritingFile: "File '%s' already exists, overwriting..."
-                createdDir: "Created target directory '%s'."
-                exists: "Couldn't move file '%s' to '%s' because a %s of the same name is already present."
-                genericError: "An error occured while moving file '%s' to '%s':\n%s"
-                createDirError: "Moving '%s' to '%s' failed (%s)."
-                cantRemove: "Couldn't overwrite file '%s': %s. Attempts at renaming the existing target file failed."
-                cantRenameTryingCopy: "Move operation failed to rename '%s' to '%s' (%s), trying copy+remove instead..."
-                couldntRemoveFiles: "Move operation suceeded to copied the file(s) to the target location, but some of the source files couldn't be removed:\n%s\n%s"
-                cantCopy: "Move operation failed to copy '%s' to '%s' (%s) after a failed rename attempt (%s)."
-            }
-            readFile: {
-                cantOpen: "Couldn't open file '%s' for reading: %s"
-                cantRead: "An error occured while trying to read from file '%s': %s"
-                notAFile: "Can only read files but supplied path '%s' points to a %s."
-            }
-            remove: {
-                noConfigReschedule: "Couldn't load the FileOps config file (%s) - deletions of %s cannot be rescheduled!"
-            }
-            rmdir: {
-                emptyPath: "Argument #1 (path) must not be an empty string."
-                couldntRemoveFiles: "Some of the files and folders in the specified directory couldn't be removed:\n%s"
-                couldntRemoveDir: "Error removing empty directory: %s."
+        generic: {
+            deletionRescheduled: "Another deletion attempt has been rescheduled for the next restart."
+        }
+        attributes: {
+            badPath: "Path failed verification: %s."
+            genericError: "Can't retrieve attributes: %s."
+            noAttribute: "Can't find attriubte with name '%s'."
+        }
+        createConfig: {
+            handlerFailed: "Couldn't create ConfigHandler for the FileOps configuation file: %s"
+        }
+        mkdir: {
+            createError: "Error creating directory: %s."
+            otherExists: "Couldn't create directory because a %s of the same name is already present."
+        }
+        copy: {
+            targetExists: "Target file '%s' already exists"
+            genericError: "An error occured while copying file '%s' to '%s':\n%s"
+            dirCopyUnsupported: "Copying directories is currently not supported."
+            missingSource: "Couldn't find source file '%s'."
+            openError: "Couldn't open %s file '%s' for reading: \n%s"
+        }
+        move: {
+            inUseTryingRename: "Target file '%s' already exists and appears to be in use. Trying to rename and delete existing file..."
+            renamedDeletionFailed: "The existing file was successfully renamed to '%s', but couldn't be deleted (%s).\n%s"
+            overwritingFile: "File '%s' already exists, overwriting..."
+            createdDir: "Created target directory '%s'."
+            exists: "Couldn't move file '%s' to '%s' because a %s of the same name is already present."
+            genericError: "An error occured while moving file '%s' to '%s':\n%s"
+            createDirError: "Moving '%s' to '%s' failed (%s)."
+            cantRemove: "Couldn't overwrite file '%s': %s. Attempts at renaming the existing target file failed."
+            cantRenameTryingCopy: "Move operation failed to rename '%s' to '%s' (%s), trying copy+remove instead..."
+            couldntRemoveFiles: "Move operation suceeded to copied the file(s) to the target location, but some of the source files couldn't be removed:\n%s\n%s"
+            cantCopy: "Move operation failed to copy '%s' to '%s' (%s) after a failed rename attempt (%s)."
+        }
+        readFile: {
+            cantOpen: "Couldn't open file '%s' for reading: %s"
+            cantRead: "An error occured while trying to read from file '%s': %s"
+            notAFile: "Can only read files but supplied path '%s' points to a %s."
+        }
+        remove: {
+            noConfigReschedule: "Couldn't load the FileOps config file (%s) - deletions of %s cannot be rescheduled!"
+        }
+        rmdir: {
+            emptyPath: "Argument #1 (path) must not be an empty string."
+            couldntRemoveFiles: "Some of the files and folders in the specified directory couldn't be removed:\n%s"
+            couldntRemoveDir: "Error removing empty directory: %s."
 
-            }
-            runScheduledRemoval: {
-                noConfigReschedule: "Couldn't load the FileOps config file (%s) - rescheduled deletions will not be performed!"
-            }
-            validateFullPath: {
-                badType: "Argument #1 (path) had the wrong type. Expected 'string', got '%s'."
-                tooLong: "The specified path exceeded the maximum length limit (%d > %d)."
-                invalidChars: "The specifed path contains one or more invalid characters: '%s'."
-                reservedNames: "The specified path contains reserved path or file names: '%s'."
-                parentPath: "Accessing parent directories is not allowed."
-                notFullPath: "The specified path is not a valid full path."
-                missingExt: "The specified path is missing a file extension."
-            }
-            getNamespacedPath: {
-                badBasePath: "Provided base path '%s' is not a valid full path (%s)."
-                badPath: "Generated namespaced path '%s' is not a valid full path (%s)."
-            }
+        }
+        runScheduledRemoval: {
+            noConfigReschedule: "Couldn't load the FileOps config file (%s) - rescheduled deletions will not be performed!"
+        }
+        validateFullPath: {
+            badType: "Argument #1 (path) had the wrong type. Expected 'string', got '%s'."
+            tooLong: "The specified path exceeded the maximum length limit (%d > %d)."
+            invalidChars: "The specifed path contains one or more invalid characters: '%s'."
+            reservedNames: "The specified path contains reserved path or file names: '%s'."
+            parentPath: "Accessing parent directories is not allowed."
+            notFullPath: "The specified path is not a valid full path."
+            missingExt: "The specified path is missing a file extension."
+        }
+        getNamespacedPath: {
+            badBasePath: "Provided base path '%s' is not a valid full path (%s)."
+            badPath: "Generated namespaced path '%s' is not a valid full path (%s)."
+        }
     }
 
     devPattern = ffi.os == "Windows" and "[A-Za-z]:" or "/[^\\\\/]+"
